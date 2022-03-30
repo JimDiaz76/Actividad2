@@ -181,6 +181,10 @@ public class Registro {
             return true;
         }
     }
+    public static boolean validarTarifa(String tarifa){
+
+        return tarifa.matches("^([0-9])$");
+    }
     public static boolean validarString(String nombre){
 
         return nombre.matches("^([A-Z]{1}[a-z]+[ ]*){1,2}$");
@@ -189,11 +193,6 @@ public class Registro {
     public static boolean validarPlaca(String placa){
 
         return placa.matches("^([A-Z]{3}[0-9]{3})$");
-    }
-
-    public static boolean validarTarifa(String tarifa){
-
-        return tarifa.matches("^([0-9])$");
     }
 
     private static boolean validTime(String time) {
