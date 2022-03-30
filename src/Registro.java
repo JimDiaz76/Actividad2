@@ -30,7 +30,6 @@ public class Registro {
     private JButton btnCalcular;
     JPanel pnlMain;
 
-
     public Registro() {
         txtTarifa.addFocusListener(new FocusAdapter() {
             @Override
@@ -40,8 +39,6 @@ public class Registro {
                     if (txtTarifa.getText().contains("."));
                     JOptionPane.showMessageDialog(new JFrame(), "Digite la tarifa sin puntos ni comas");
                 }
-
-
             }
         });
         cbxTipo.addFocusListener(new FocusAdapter() {
@@ -104,18 +101,11 @@ public class Registro {
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        btnCalcular.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 double tiempototal = 0 ;
                 if(!cbxTipo.getSelectedItem().equals("Tipo de Vehículo")&&!txtMarca.getText().isEmpty()&&!txtModelo.getText().isEmpty()&&
                     !txtPlaca.getText().isEmpty()&&!txtFechaI.getText().isEmpty()&&!txtHoraI.getText().isEmpty()&&
                     !txtFechaS.getText().isEmpty()&&!txtHoraS.getText().isEmpty()&&!txtTarifa.getText().isEmpty()){
                     try {
-
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         SimpleDateFormat format2 = new SimpleDateFormat("HH:mm:ss");
                         Date firstDate = format.parse(txtFechaI.getText());
@@ -124,8 +114,6 @@ public class Registro {
                         Date secondHour = format2.parse(txtHoraS.getText());
                         float pay = 0;
                         float payT = Float.parseFloat(txtTarifa.getText());
-
-
 
                         if(firstHour.getTime() >= secondHour.getTime()){
                             long timeD = Math.abs(secondHour.getTime() - firstHour.getTime());
