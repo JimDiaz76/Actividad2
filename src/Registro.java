@@ -180,7 +180,7 @@ public class Registro {
 
     public static boolean validarPlaca(String placa){
 
-        return placa.matches("^([A-Z]{3}[0-9]{3})$");
+        return placa.matches("^([A-Za-z]{3}[0-9]{2}[A-za-z0-9]{1})$");
     }
 
     private static boolean validTime(String time) {
