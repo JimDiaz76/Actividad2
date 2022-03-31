@@ -34,11 +34,7 @@ public class Registro {
         txtTarifa.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (!validarTarifa(txtMarca.getText())) {
-                    JOptionPane.showMessageDialog(new JFrame(), "La tarifa no contiene letras");
-                    if (txtTarifa.getText().contains("."));
-                    JOptionPane.showMessageDialog(new JFrame(), "Digite la tarifa sin puntos ni comas");
-                }
+                if (validarTarifa(txtMarca.getText()));
             }
         });
         cbxTipo.addFocusListener(new FocusAdapter() {
@@ -70,7 +66,7 @@ public class Registro {
             @Override
             public void focusLost(FocusEvent e) {
                 if (!validarPlaca(txtPlaca.getText())) {
-                    JOptionPane.showMessageDialog(new JFrame(), "La placa contiene 3 letras mayúsculas y 3 numeros");
+                    JOptionPane.showMessageDialog(new JFrame(), "La placa contiene 3 o 4 letras mayúsculas y 3 o 2numeros");
                 }
             }
         });
@@ -139,8 +135,7 @@ public class Registro {
 
                         JOptionPane.showMessageDialog(new JFrame(), "Tipo de vehículo: " + cbxTipo.getSelectedItem() +"\nMarca: " + txtMarca.getText() + "\nModelo: " +txtModelo.getText()
                                 + "\nPlaca: " + txtPlaca.getText() +"\nFecha de Ingreso: " + txtFechaI.getText() + "\nHora de ingreso: " + txtHoraI.getText()
-                                + "\nFecha de Salida: " + txtFechaS.getText() + "\nHora de salida: " + txtHoraS.getText() + "\nTotal de horas en el parqueadero: " + tiempototal + "\nEl precio que de be pagar es: " + pay +
-                                 " mil");
+                                + "\nFecha de Salida: " + txtFechaS.getText() + "\nHora de salida: " + txtHoraS.getText() + "\nTotal de horas en el parqueadero: " + tiempototal + "\nEl precio que de be pagar es: " + pay);
                         }catch (Exception ex){
                         JOptionPane.showMessageDialog(new JFrame(), "Error: " + ex.getMessage());
 
