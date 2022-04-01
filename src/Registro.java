@@ -29,12 +29,22 @@ public class Registro {
     private JTextField txtHoraS;
     private JButton btnCalcular;
     JPanel pnlMain;
+    private JComboBox cbxCliente;
 
     public Registro() {
+        cbxCliente.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                String opcion = cbxCliente.getSelectedItem().toString();
+                if (opcion.equals("Tipo de Cliente")){
+                    JOptionPane.showMessageDialog(new JFrame(), "Elija un tipo de vehículo");
+                }
+            }
+        });
         txtTarifa.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
-                if (validarTarifa(txtMarca.getText()));
+                if (!validarTarifa(txtMarca.getText()));
             }
         });
         cbxTipo.addFocusListener(new FocusAdapter() {
@@ -132,10 +142,15 @@ public class Registro {
                             tiempototal = days + days2;
                             pay = (float) (tiempototal * payT);
                         }
+                        String opcion = cbxCliente.getSelectedItem().toString();
+                        if (opcion.equals("Preferencial")){
+                            float payP = (pay * 10) / 100;
+                            pay -= payP;
+                        }
 
                         JOptionPane.showMessageDialog(new JFrame(), "Tipo de vehículo: " + cbxTipo.getSelectedItem() +"\nMarca: " + txtMarca.getText() + "\nModelo: " +txtModelo.getText()
                                 + "\nPlaca: " + txtPlaca.getText() +"\nFecha de Ingreso: " + txtFechaI.getText() + "\nHora de ingreso: " + txtHoraI.getText()
-                                + "\nFecha de Salida: " + txtFechaS.getText() + "\nHora de salida: " + txtHoraS.getText() + "\nTotal de horas en el parqueadero: " + tiempototal + "\nEl precio que de be pagar es: " + pay);
+                                + "\nFecha de Salida: " + txtFechaS.getText() + "\nHora de salida: " + txtHoraS.getText() + "\nTotal de horas en el parqueadero: " + tiempototal + "\nTipo de cliente: "+ cbxCliente.getSelectedItem() +"\nEl precio que de be pagar es: " + pay);
                         }catch (Exception ex){
                         JOptionPane.showMessageDialog(new JFrame(), "Error: " + ex.getMessage());
 
